@@ -21,6 +21,7 @@ pipeline {
         }
         
         stage('Tests') {
+            parallel {
 		stage('Unit') {
 		    steps {
 			bat '''
@@ -41,6 +42,7 @@ pipeline {
 			'''
 		    }    
 		}
+	    }
         }
         stage ('Results') {
             steps {
