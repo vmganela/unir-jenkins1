@@ -37,7 +37,7 @@ pipeline {
 			    set FLASK_APP=app\\api.py
 			    set FLASK_ENV=development
 			    start python -m flask run
-			    start java -jar C:\\Users\\rotten\\Documents\\Clases_UNIR\\wiremock\\wiremock-jre8-standalone-2.33.2.jar --port 9090 --root-dir C:\\Users\\rotten\\Documents\\Clases_UNIR\\wiremock
+			    start java -jar ${env.BUILD_NUMBER}\\wiremock-jre8-standalone-2.33.2.jar --port 9090 --root-dir ${env.BUILD_NUMBER}
 			    pytest --junitxml=result-rest.xml test\\rest
                         '''
                     }    
