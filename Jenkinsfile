@@ -51,6 +51,9 @@ pipeline {
             }
         }
         stage ('Deploy') {
+            agent {
+                label 'Secure'
+            }
             when {
                 branch 'master'
             }
