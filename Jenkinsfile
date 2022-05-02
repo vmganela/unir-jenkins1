@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-     stages {
+    stages {
         stage('Get Code') {
             steps {
                 // Obtener código del repo
@@ -47,6 +47,18 @@ pipeline {
         stage ('Results') {
             steps {
                 junit 'result*.xml'
+            }
+        }
+        stage ('Deploy') {
+            when {
+                branch 'master'
+            }
+            steps{
+                echo '.'
+                echo '...'
+                echo '......'
+                echo '.........'
+                echo 'Que deploy mas bonico'
             }
         }
     }
